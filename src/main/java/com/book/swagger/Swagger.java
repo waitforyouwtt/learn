@@ -32,8 +32,8 @@ public class Swagger {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("springboot+mysql+jpa+swagger接口文档")
-                .description("代码示例......mifanzhu")
+                .title("世界就像一个巨大的抓娃娃机，隔着玻璃，我只想得到你")
+                .description("想要有你陪，想要把自己灌醉......mifanzhu")
                 .termsOfServiceUrl("https://blog.csdn.net/qq_35781178")
                 .version("1.0")
                 .build();
