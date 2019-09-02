@@ -215,6 +215,19 @@ public class UserInfoServiceImpl implements UserInfoService {
         return rows;
     }
 
+    @Override
+    public String findUser(String userId) {
+        String userName = null;
+        try{
+            UserInfo  info = userInfoDao.findUser(userId);
+            userName = info.getUserName();
+        }catch (Exception e){
+            logger.info("查询用户信息异常{}",e);
+            userName = "error";
+        }
+        return userName;
+    }
+
     public String getCellValue(Cell cell) {
         String value = "";
         if (cell != null) {

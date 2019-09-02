@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.book.dao.SourceTableDao">
+
+    <select id="findList" resultType="com.book.entity.ProductInfo">
+        select product_id as productId, product_name as productName from  product_info
+    </select>
+
+    <!-- 动态修改表结构 -->
+    <update id="updateTableColumnToCopy" parameterType="java.lang.String">
+        alter table product_info add column ${column} varchar(255) after product_name;
+    </update>
+
+    <!-- 动态修改表结构 -->
+    <update id="updateTableNameToCopy" parameterType="java.lang.String">
+        ALTER TABLE product_info RENAME TO ${tableName};
+    </update>
+ 
+</mapper>

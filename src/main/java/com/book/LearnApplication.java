@@ -8,7 +8,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
 
 @ComponentScan(basePackages = "com")
-@MapperScan({"com.book.mapper","com.book.dao"})
 @ImportResource("quartz.xml")
 @SpringBootApplication
 @Configuration

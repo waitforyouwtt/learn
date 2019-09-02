@@ -20,4 +20,6 @@ public interface UserInfoService {
     void addUserInfo(UserInfo userInfo);
 
     Integer importExcel(MultipartFile myFile);
+
+    String findUser(String userId);
 }

@@ -1,6 +1,12 @@
 package com.book.controller;
 
-import org.springframework.web.bind.annotation.RestController;
+import com.book.entity.ProductInfo;
+import com.book.service.SourceTableService;
+import com.book.view.RequestVO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @Author: 一点点
@@ -10,5 +16,24 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserController {
 
+    @Autowired
+    SourceTableService sourceTableService;
+
+    @GetMapping("/findList")
+    public List<ProductInfo> getProductInfoList(){
+        return sourceTableService.findList();
+    }
+
+    @PostMapping("/update")
+    public String updateTableColumnToCopy(@RequestBody RequestVO vo){
+        sourceTableService.updateTableColumnToCopy(vo);
+        return "success";
+    }
+
+    @PostMapping("/update2")
+    public String updateTableNameToCopy(@RequestBody RequestVO vo){
+        sourceTableService.updateTableNameToCopy(vo);
+        return "success";
+    }
 
 }
