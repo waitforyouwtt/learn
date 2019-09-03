@@ -21,4 +21,6 @@ public interface SourceTableDao {
     void updateTableColumnToCopy(@Param( "column" ) String column);
 
     void updateTableNameToCopy(@Param( "tableName" ) String tableName);
+
+    void createTable(@Param( "tableName" ) String tableName);
 }

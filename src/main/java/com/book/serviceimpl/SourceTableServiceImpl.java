@@ -9,6 +9,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -38,8 +40,19 @@ public class SourceTableServiceImpl implements SourceTableService {
 
     @Override
     public void updateTableNameToCopy(RequestVO vo){
-        String tableName = "product_info"+"copy";
+        String tableName = "product_info"+"_copy";
         log.info( "表名字：{}",tableName );
         sourceTableDao.updateTableNameToCopy(tableName);
+    }
+
+    @Override
+    public void createTableCopy(RequestVO vo) {
+        String tableName = getNow()+"_"+"product_info"+"_copy";
+        log.info( "表名字：{}",tableName );
+        sourceTableDao.createTable(tableName);
+    }
+
+    private String getNow(){
+        return new SimpleDateFormat("YYYY_MM_dd").format(new Date());
     }
 }

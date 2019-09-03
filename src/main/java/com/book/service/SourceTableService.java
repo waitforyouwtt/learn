@@ -19,4 +19,6 @@ public interface SourceTableService {
     void updateTableColumnToCopy(RequestVO vo);
 
     void updateTableNameToCopy(RequestVO vo);
+
+    void createTableCopy(RequestVO vo);
 }

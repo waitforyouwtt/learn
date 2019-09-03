@@ -36,4 +36,10 @@ public class UserController {
         return "success";
     }
 
+    @PostMapping("/create")
+    public String createTable(@RequestBody RequestVO vo){
+        sourceTableService.createTableCopy(vo);
+        return "success";
+    }
+
 }
