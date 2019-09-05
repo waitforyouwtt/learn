@@ -41,5 +41,11 @@ public class UserController {
         sourceTableService.createTableCopy(vo);
         return "success";
     }
+    @PostMapping("/update3")
+    public String updateSynchroBatchById(@RequestBody RequestVO vo){
+        sourceTableService.updateSynchroBatchById(vo.getSheetId());
+        return "success";
+    }
+
 
 }

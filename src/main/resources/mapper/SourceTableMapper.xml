@@ -57,4 +57,12 @@
     ) ENGINE=InnoDB AUTO_INCREMENT=492318 DEFAULT CHARSET=utf8;
     </update>
 
+    <update id="updateSynchroBatchById" parameterType="java.util.List">
+        update yh_platform_updprice set SYNCHRO = 1
+        where SHEETID in
+        <foreach collection="vos" index="index" item="vo"
+                 separator="," open="(" close=")">
+            #{vo}
+        </foreach>
+    </update>
 </mapper>

@@ -2,6 +2,7 @@ package com.book.dao;
 
 import com.book.entity.ProductInfo;
 import com.book.entity.SourceTable;
+import com.book.view.RequestVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -23,4 +24,6 @@ public interface SourceTableDao {
     void updateTableNameToCopy(@Param( "tableName" ) String tableName);
 
     void createTable(@Param( "tableName" ) String tableName);
+
+    void updateSynchroBatchById(@Param("vos") List<String> ids);
 }

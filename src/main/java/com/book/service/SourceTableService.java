@@ -3,6 +3,7 @@ package com.book.service;
 import com.book.entity.ProductInfo;
 import com.book.entity.SourceTable;
 import com.book.view.RequestVO;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -21,4 +22,7 @@ public interface SourceTableService {
     void updateTableNameToCopy(RequestVO vo);
 
     void createTableCopy(RequestVO vo);
+
+    void updateSynchroBatchById(@Param("vos") List<String> ids);
+
 }

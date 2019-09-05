@@ -2,6 +2,8 @@ package com.book.view;
 
 import lombok.Data;
 
+import java.util.List;
+
 /**
  * @Author: 凤凰[小哥哥]
  * @Date: 2019/9/2 19:53
@@ -12,4 +14,10 @@ import lombok.Data;
 public class RequestVO {
 
     private String username;
+
+    private List<String> sheetId;
+
+    private String shopId;
+
+    private String promno;
 }

@@ -52,6 +52,11 @@ public class SourceTableServiceImpl implements SourceTableService {
         sourceTableDao.createTable(tableName);
     }
 
+    @Override
+    public void updateSynchroBatchById(List<String> ids) {
+        sourceTableDao.updateSynchroBatchById(ids);
+    }
+
     private String getNow(){
         return new SimpleDateFormat("YYYY_MM_dd").format(new Date());
     }
