@@ -25,10 +25,13 @@ spring:
             content:
               enabled: true
               paths: /**
+      jpa:
+        database-platform: org.hibernate.dialect.MySQLDialect
 mybatis:
   mapper-locations: classpath*:mapper/*Mapper.xml
   type-aliases-package: com.book.entity
 server:
   port: 8082
+
 
 

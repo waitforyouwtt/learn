@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
 
 @ComponentScan(basePackages = "com")
-@ImportResource("quartz.xml")
+/*@ImportResource("quartz.xml")*/
 @SpringBootApplication
 @Configuration
 public class LearnApplication {
