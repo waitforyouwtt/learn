@@ -24,6 +24,11 @@ public class DateUtil {
 		return time;
 	}
 
+	public static void main(String[] args) {
+		System.out.println(getDateFormat("yyyy-mm-dd hh:mm:ss"));
+	}
+
+
 	/**
 	 * 获取时间 format 格式
 	 * 
@@ -106,10 +111,10 @@ public class DateUtil {
 		return time;
 	}
 
-	public static void main(String[] args) {
+/*	public static void main(String[] args) {
 		String days = getStringDate("2017-05-10 14:32:22","yyyy-MM-dd hh:mm:ss","yyyy-MM-dd");
 		System.out.println(days);
-	}
+	}*/
 
 	/**
 	 * 时间相加

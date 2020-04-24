@@ -1,12 +1,10 @@
 package com.book.utils;
 
-import com.book.entity.ContinentRepaymentPlan;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 
 /**
@@ -116,28 +114,7 @@ public class ReadFile {
 
     @Test
     public  void main2() {
-        String fileName = "E:\\putong\\Multiple file uploads\\src\\main\\java\\com\\book\\util\\HA007_20190604.txt";
-        String[] result = toArrayByFileReader(fileName);
-        String replace;
-        String[] strSplit;
-        ContinentRepaymentPlan plan = new ContinentRepaymentPlan();
-        for (String s: result){
-            replace = s.replace("@|@"," ");
-            strSplit = replace.split(" ");
-            plan.setLoanId(strSplit[0]);
-            plan.setTerm(Integer.parseInt(strSplit[1]));
-            plan.setShouldPayDate(strSplit[2]);
-            plan.setShouldPayAmount(new BigDecimal(strSplit[3]));
-            plan.setShouldPayInterest(new BigDecimal(strSplit[4]));
-            plan.setShouldPayPenaltyInterest(new BigDecimal(strSplit[5]));
-            plan.setShouldPayCompoundInterest(new BigDecimal(strSplit[6]));
-            plan.setActualPayDate(strSplit[7]);
-            plan.setRealRepayPrincipal(new BigDecimal(strSplit[8]));
-            plan.setRealRepayProfit(new BigDecimal(strSplit[9]));
-            plan.setRealFinedInterest(new BigDecimal(strSplit[10]));
-            plan.setRealCompoundInterest(new BigDecimal(strSplit[11]));
-            logger.info("解析文件得到的结果是{}",plan.toString());
-        }
+
     }
 
 }
