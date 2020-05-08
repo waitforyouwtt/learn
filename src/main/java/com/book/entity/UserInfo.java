@@ -47,4 +47,8 @@ public class UserInfo implements Serializable{
     @ApiModelProperty(value = "修改时间")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDate updateTime;
+
+    public UserInfo(@Pattern(regexp = "^[\u4E00-\u9FA5]+$", message = "用户名格式错误") String userName) {
+        this.userName = userName;
+    }
 }
