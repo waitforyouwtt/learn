@@ -19,6 +19,13 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 	
     private static final char SEPARATOR = '_';
     private static final String CHARSET_NAME = "UTF-8";
+
+	/**
+	 * 非常规字符的区域都替换掉
+	 */
+	private static final String EMOJI_RANGE_REGEX_EX = "([\\x{10000}-\\x{10ffff}\ud800-\udfff])";
+
+	private static final Pattern PATTERN_EX = Pattern.compile(EMOJI_RANGE_REGEX_EX,Pattern.UNICODE_CASE | Pattern.CASE_INSENSITIVE);
     
     /**
      * 转换为字节数组
@@ -306,5 +313,23 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
     		return obj;
     	}
     }
-    
+
+	/**
+	 * 查找和移除emoji表情 @param input
+	 */
+
+	public static String eraseEmojisEx(String input) {
+		if (org.apache.commons.lang3.StringUtils.isBlank(input)) {
+			return input;
+		}
+
+		Matcher matcher = PATTERN_EX.matcher(input);
+		StringBuffer sb = new StringBuffer();
+		while (matcher.find()) {
+			matcher.appendReplacement(sb, org.apache.commons.lang3.StringUtils.EMPTY);
+		}
+
+		matcher.appendTail(sb);
+		return sb.toString();
+	}
 }

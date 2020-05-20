@@ -1,14 +1,14 @@
 package com.book;
 
+import com.book.entity.Person;
 import com.google.common.collect.Sets;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.math.BigDecimal;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -41,5 +41,50 @@ public class ListTest extends LearnApplicationTests{
         Sets.SetView<String> union =Sets.union(setOne, setTwo);
         List<String> unionList = union.parallelStream().collect(Collectors.toList());
         log.info("集合list的并集数据：{}",unionList);
+    }
+
+    @Test
+    public void stringbuilder(){
+        List<Person> personList = new ArrayList<>();
+        Person person = new Person();
+        person.setUserName("张三");
+        person.setAge(20);
+
+        Person person1 = new Person();
+        person1.setUserName("李四");
+        person1.setAge(25);
+
+        personList.add(person);
+        personList.add(person1);
+
+        personList.sort(Comparator.comparing(Person::getAge).reversed());
+        log.info("sb:{}");
+    }
+
+    private String StringBufferOne(List<Person> personList){
+        if (org.springframework.util.CollectionUtils.isEmpty(personList)) {
+            return StringUtils.EMPTY;
+        }
+        StringBuffer sb = new StringBuffer();
+        for (Person person : personList) {
+                sb.append("|").append(person.getUserName()).append("^").append(person.getAge());
+        }
+        return sb.length() > 0 ? sb.toString().substring(1) : "";
+    }
+
+    private String stringBufferTwo(List<Person> personList){
+
+        StringBuffer sb = new StringBuffer();
+
+        for(int i = 0 ; i < personList.size();i++){
+            Person  person = personList.get(i);
+            sb.append(person.getUserName());
+            sb.append("^");
+            sb.append(person.getAge());
+            if(i <personList.size()-1  ){
+                sb.append("|");
+            }
+        }
+        return sb.toString();
     }
 }
